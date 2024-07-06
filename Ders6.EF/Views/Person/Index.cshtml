@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Person>
+
+
+    <h2>Kullanıcı Listesi</h2>
+
+    <a href="/Person/Create" class="btn btn-primary">Yeni Oluştur</a>
+
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th>Adı</th>
+                <th>Soyadı</th>
+                <td>Islem</td>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var person in Model)
+            {
+                <tr>
+                    <td> @person.Name</td>
+                    <td> @person.Surname</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@person.Id">Güncelle</a>
+                        <a asp-action="Delete" asp-route-id="@person.Id">Sil</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+
+
+
+
+ 
