@@ -53,6 +53,7 @@ namespace Ders6.EF.Controllers
         public IActionResult Create(Person person)
         {
            
+
                 _context.Person.Add(person);
                 _context.SaveChanges();
 

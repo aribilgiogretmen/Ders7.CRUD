@@ -13,5 +13,14 @@ namespace Ders6.EF.Data
         public DbSet<Job> Job { get; set; }
 
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+
+            modelBuilder.Entity<Job>(e => e.Property(a => a.Aciklama).HasColumnName("Description"));
+        }
+
+
     }
 }
