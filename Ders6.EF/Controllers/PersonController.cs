@@ -1,6 +1,8 @@
 ﻿using Ders6.EF.Data;
 using Ders6.EF.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace Ders6.EF.Controllers
 {
@@ -18,14 +20,18 @@ namespace Ders6.EF.Controllers
 
         public IActionResult Index()
         {
-            var people = _context.Person.ToList();
+            var Personel = _context.Person.Include(p => p.Job);
 
-            return View(people);
+
+           
+
+
+            return View(Personel.ToList());
         }
 
         public IActionResult Create()
         {
-            
+            ViewData["JobId"] = new SelectList(_context.Job, "Id", "Name");
 
             return View();
         }
@@ -46,15 +52,12 @@ namespace Ders6.EF.Controllers
         [HttpPost]
         public IActionResult Create(Person person)
         {
-            if (ModelState.IsValid)
-            {
+           
                 _context.Person.Add(person);
                 _context.SaveChanges();
+
+                ViewData["JobId"] = new SelectList(_context.Job, "Id", "Name",person.JobId);
                 return RedirectToAction(nameof(Index));
-
-            }
-
-            return View(person);
         }
 
         [HttpPost]

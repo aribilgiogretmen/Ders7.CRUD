@@ -11,6 +11,9 @@
             <tr>
                 <th>Adı</th>
                 <th>Soyadı</th>
+                <th>Telefon</th>
+                <th>Adres</th>
+                <th>Meslek</th>
                 <td>Islem</td>
             </tr>
 
@@ -21,6 +24,9 @@
                 <tr>
                     <td> @person.Name</td>
                     <td> @person.Surname</td>
+                    <td> @person.Phone</td>
+                    <td> @person.Address</td>
+                    <td> @person.Job.Name</td>
                     <td>
                         <a asp-action="Edit" asp-route-id="@person.Id">Güncelle</a>
                         <a asp-action="Delete" asp-route-id="@person.Id">Sil</a>

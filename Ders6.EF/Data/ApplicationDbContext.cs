@@ -10,6 +10,7 @@ namespace Ders6.EF.Data
 
 
         public DbSet<Person> Person { get; set; }
+        public DbSet<Job> Job { get; set; }
 
 
     }

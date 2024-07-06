@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Job>
+
+
+<h2>Meslek Listesi</h2>
+
+<a href="/Job/Create" class="btn btn-primary">Yeni Oluştur</a>
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>Name</th>
+           
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var person in Model)
+        {
+            <tr>
+                <td> @person.Name</td>
+               
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+
+
+
+
+
